@@ -23,12 +23,14 @@ const product: Product = {
   price: 75000,
   originalPrice: 115000,
   images: [
-    "/images/placeholder.jpg",
-    "/images/placeholder.jpg",
-    "/images/placeholder.jpg",
+    "/images/poedagar-black.jpg",
+    "/images/poedagar-blue.jpg",
+    "/images/poedagar-gold.jpg",
+    // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaBdqIz0brSOfxWCwkuEa3DJ54THSeZnBoQHcHz9tWGA&s=10",
+    "https://www-konga-com-res.cloudinary.com/image/upload/f_auto,q_auto,w_1080,c_limit/media/catalog/product/N/U/173643_1777291145.jpg",
   ],
   description:
-    "The essence of elegance. A timeless dress watch with a manual winding movement. Crafted in 18k gold with a lacquered dial and sapphire crystal case back.",
+    "It is 30 ATM water resistant, so you can decide to swim with it without the feed of water damaging it. It is PVD coated. (PVD coating is what they use for high quality stainless steel spoons to make them last for years. So, you can also expect this watch to last for between 8 to 12 years. It comes with a 3 years repair or replacement warranty, so if anything happens to the watch within the first 3 years of purchase, we are going to repair it or replace it for you for free. No added costs.",
   inStock: true,
   benefits: [
     "2 Free Gifts",
@@ -37,8 +39,16 @@ const product: Product = {
     "7-day return policy",
   ],
   gifts: [
-    { image: "/images/placeholder.jpg", title: "1 Black Assad Perfume" },
-    { image: "/images/placeholder.jpg", title: "2 Black Wrist beeds" },
+    {
+      image:
+        "https://healthify.ng/wp-content/uploads/2026/07/IMG-20260402-WA0069-1024x986-1-768x740.webp",
+      title: "1 Black Assad Perfume",
+    },
+    {
+      image:
+        "https://healthify.ng/wp-content/uploads/2026/07/IMG_0124-1152x1536-1-768x1024.webp",
+      title: "2 Black Wrist beeds",
+    },
   ],
 };
 
@@ -72,12 +82,12 @@ export default function ProductDetailPage() {
     ? product.originalPrice - product.price
     : 0;
   const slides = product.images.map((i) => (
-    <div className="w-full bg-gold/20" key={i}>
+    <div className="w-full h-100 relative bg-gold/20" key={i}>
       <Image
-        width={100}
-        height={100}
+        fill
         src={i}
-        className="w-full h-70 object-cover"
+        quality={100}
+        className="object-contain"
         alt={product.name}
       />
     </div>
@@ -128,7 +138,7 @@ export default function ProductDetailPage() {
       <div className="grid sm:grid-cols-2 gap-6 relative">
         {/* Product Image */}
         <div className="space-y-2 sm:space-y-4">
-          <Slider showNav={false} slides={slides} className="h-fit!" />
+          <Slider showNav={true} slides={slides} className="h-fit!" />
           <div className="rounded-2xl space-y-2">
             <div className="bg-gold-moon p-4 rounded-2xl">
               <div className="flex gap-1 items-center">

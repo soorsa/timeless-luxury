@@ -171,7 +171,7 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <div className="w-full text-left">
-      <div className="text-sm mb-0.5">{label}</div>
+      <div className="text-sm mb-0.5 font-semibold">{label}</div>
       <div
         className={`w-full relative flex ${
           isTextarea ? "flex-col" : "flex-row"

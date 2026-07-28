@@ -7,7 +7,7 @@ export const useModal = create<ModalState>((set) => ({
   isOpen: false,
   content: null,
   title: "",
-  size: "w-xs sm:w-sm",
+  size: "w-[95%] sm:w-sm",
   goBack() {},
   open: (content) =>
     set({
@@ -17,7 +17,7 @@ export const useModal = create<ModalState>((set) => ({
       isTransModal: false,
       title: content.title,
       goBack: content.goBack,
-      size: content.size || "w-xs sm:w-sm",
+      size: content.size || "w-[95%] sm:w-sm",
     }),
   openStrong: (content) => set({ isOpen: true, isCloseable: false, content }),
   openTransModal: (content) =>

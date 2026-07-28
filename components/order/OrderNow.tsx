@@ -4,6 +4,7 @@ import Radio from "@/components/form/Radio";
 import Button from "@/components/global/Button";
 import { formatPrice } from "@/utils/format.util";
 import { Form, Formik } from "formik";
+import { Info } from "lucide-react";
 import React from "react";
 import * as Yup from "yup";
 interface Props {
@@ -13,6 +14,7 @@ const OrderNow: React.FC<Props> = ({ product }) => {
   const colorOptions = [
     { label: "Black", value: "Black" },
     { label: "Blue", value: "Blue" },
+    { label: "Gold", value: "Gold" },
   ];
   const initialValues = {
     fullname: "",
@@ -35,6 +37,13 @@ const OrderNow: React.FC<Props> = ({ product }) => {
   const submit = () => {};
   return (
     <div>
+      <div className="flex gap-2 border border-gray-300 p-1 rounded-xl mb-4 text-gray-500">
+        <Info className="text-gray-400" />
+        <div className="text-xs flex-1 font-medium">
+          DO NOT PLACE AN ORDER IF YOU DO NOT HAVE THE COMPLETE MONEY OR YOU
+          WONT BE AVAILABLE TO RECEIVE THE PRODUCT IN THE NEXT 24 HOURS.
+        </div>
+      </div>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -48,7 +57,7 @@ const OrderNow: React.FC<Props> = ({ product }) => {
               <Input name="email" label="Email address" />
               <Input name="phone_number" label="Phone number" />
               <div className="">
-                <div className="">Delivery Address:</div>
+                <div className="text-sm font-semibold">Delivery Address:</div>
                 {/* <div className="grid grid-cols-4 gap-1">
                   </div> */}
                 <div className="grid grid-cols-2 gap-1">
@@ -72,11 +81,11 @@ const OrderNow: React.FC<Props> = ({ product }) => {
                 name="color"
                 options={colorOptions}
                 orientation="horizontal"
-                optionClassName="min-w-[calc(50%-8px)]"
+                optionClassName="min-w-[calc(33%-8px)]"
               />
               <NumberInput name="quantity" label="How many to you want?" />
             </div>
-            <div className="">
+            <div className="sticky bottom-0 bg-white">
               <Button
                 label="Order Now"
                 type="submit"
