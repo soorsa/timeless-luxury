@@ -42,6 +42,15 @@ const product: Product = {
 export const metadata: Metadata = {
   title: `${product.name} · Timeless Luxury `,
   description: "Curated collection of the world's finest luxury watches",
+
+  twitter: {
+    card: "summary_large_image",
+    images: product.images,
+  },
+  openGraph: {
+    type: "website",
+    images: product.images,
+  },
 };
 
 export default function ProductDetailPage() {
