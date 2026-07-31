@@ -2,15 +2,18 @@ import Input from "@/components/form/Input";
 import NumberInput from "@/components/form/NumberInput";
 import Radio from "@/components/form/Radio";
 import Button from "@/components/global/Button";
+import OrderSuccessful from "@/components/order/OrderSuccessful";
+import { useModal } from "@/store/modal.store";
 import { formatPrice } from "@/utils/format.util";
 import { Form, Formik } from "formik";
 import { Info } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 interface Props {
   product: Product;
 }
 const OrderNow: React.FC<Props> = ({ product }) => {
+  const [loading, setloading] = useState(false);
   const colorOptions = [
     { label: "Black", value: "Black" },
     { label: "Blue", value: "Blue" },
@@ -34,7 +37,37 @@ const OrderNow: React.FC<Props> = ({ product }) => {
     color: Yup.string().required("required"),
     quantity: Yup.number().required("required"),
   });
-  const submit = () => {};
+  const modal = useModal();
+  const submit = async (values: typeof initialValues) => {
+    try {
+      setloading(true);
+      const response = await fetch("/api/order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...values,
+          productName: product.name,
+          productPrice: product.price,
+          total: product.price * Number(values.quantity),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit order");
+      }
+      modal.open({
+        title: "Order placed successfully",
+        content: <OrderSuccessful />,
+        size: "w-[95%] sm:w-md",
+      });
+      setloading(false);
+    } catch (error) {
+      console.error(error);
+      setloading(false);
+    }
+  };
   return (
     <div>
       <div className="flex gap-2 border border-gray-300 p-1 rounded-xl mb-4 text-gray-500">
@@ -89,7 +122,9 @@ const OrderNow: React.FC<Props> = ({ product }) => {
               <Button
                 label="Order Now"
                 type="submit"
-                disabled={!isValid}
+                disabled={!isValid || loading}
+                isLoading={loading}
+                loadingLabel="Processing order"
                 icon={
                   <div>
                     {formatPrice(product.price * Number(values.quantity))}

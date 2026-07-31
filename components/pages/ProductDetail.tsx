@@ -25,6 +25,7 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
     modal.open({
       title: `Buy ${product.name}`,
       content: <OrderNow product={product} />,
+      size: "w-[95%] sm:w-md",
     });
   };
 
@@ -158,10 +159,11 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
               />
             </div>
             <Button
+              link="tel:+2349138265891"
+              type="link"
               label="Call us"
-              className="bg-blue-600!"
+              className="bg-blue-800! text-white no-underline!"
               icon={<PhoneCall className="w-5 h-5 sm:w-5.5 sm:h-5.5" />}
-              // onClick={() => addItem(product)}
             />
           </div>
         </div>
@@ -178,10 +180,11 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
           />
         </div>
         <Button
+          link="tel:+2349138265891"
+          type="link"
           label="Call us"
-          className="bg-blue-800!"
+          className="bg-blue-800! text-white no-underline!"
           icon={<PhoneCall className="w-5 h-5 sm:w-5.5 sm:h-5.5" />}
-          // onClick={() => addItem(product)}
         />
       </div>
     </motion.div>
