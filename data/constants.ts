@@ -3,6 +3,7 @@ export const products: Product[] = [
     id: 1,
     brand: "POEDAGAR",
     name: "Poedagar Smart Watch",
+    slug: "poedagar-smart-watch",
     price: 75000,
     originalPrice: 115000,
     images: [
@@ -30,7 +31,7 @@ export const products: Product[] = [
       {
         image:
           "https://healthify.ng/wp-content/uploads/2026/07/IMG_0124-1152x1536-1-768x1024.webp",
-        title: "2 Black Wrist beeds",
+        title: "1 Black Wrist beeds",
       },
     ],
   },
@@ -38,6 +39,7 @@ export const products: Product[] = [
     id: 2,
     brand: "Audemars Piguet",
     name: "Royal Oak",
+    slug: "royal-oak",
     price: 47500,
     images: [
       "/images/placeholder.jpg",
@@ -61,6 +63,7 @@ export const products: Product[] = [
     id: 3,
     brand: "Vacheron Constantin",
     name: "Overseas",
+    slug: "overseas",
     price: 31200,
     originalPrice: 35800,
     images: [
@@ -85,6 +88,7 @@ export const products: Product[] = [
     id: 4,
     brand: "A. Lange & Söhne",
     name: "Lange 1",
+    slug: "lange-1",
     price: 39800,
     images: [
       "/images/placeholder.jpg",
@@ -108,6 +112,7 @@ export const products: Product[] = [
     id: 5,
     brand: "Jaeger-LeCoultre",
     name: "Reverso",
+    slug: "Reverso",
     price: 18900,
     images: [
       "/images/placeholder.jpg",
@@ -131,6 +136,7 @@ export const products: Product[] = [
     id: 6,
     brand: "Rolex",
     name: "Daytona",
+    slug: "Daytona",
     price: 33500,
     originalPrice: 38000,
     images: [

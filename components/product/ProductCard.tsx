@@ -23,7 +23,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
     >
-      <Link href={`/products/${product.name}`}>
+      <Link href={`/products/${product.slug}`}>
         <div className="h-72 bg-[#f5f0eb] flex items-center justify-center p-6 group-hover:bg-[#ede6df] transition-colors">
           <Image
             src={product.images[0]}
@@ -36,7 +36,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
       </Link>
 
       <div className="p-6">
-        <Link href={`/products/${product.id}`} className="block">
+        <Link href={`/products/${product.slug}`} className="block">
           <div className="flex justify-between items-start">
             <div>
               <p className="text-xs text-[#b78c5f] font-semibold tracking-wider uppercase">
