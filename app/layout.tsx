@@ -33,6 +33,7 @@ export default function RootLayout({
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://facebook.net/en_US/fbevents.js');
             fbq('init', '${FBpixel.FB_PIXEL_ID}');
+            fbq('track', 'PageView');
           `,
           }}
         />
