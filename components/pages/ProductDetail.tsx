@@ -8,13 +8,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import {
-  ArrowLeftIcon,
   CheckCircle2,
   Gift,
   PhoneCall,
   ShoppingBagIcon,
+  Truck,
 } from "lucide-react";
-import Link from "next/link";
 interface Prop {
   product: Product;
 }
@@ -51,21 +50,44 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
       transition={{ duration: 0.5 }}
       className="relative"
     >
-      <Link
+      {/* <Link
         href="/"
         className="inline-flex items-center gap-2 text-[#b78c5f] hover:underline underline-offset-2 mb-8"
       >
         <ArrowLeftIcon className="w-4 h-4" />
         Back to collection
       </Link>
+ */}
 
+      <div className="grid gap-1 sm:gap-2 pb-4">
+        {/* <div className="bg-[#3d352e] border border-gold/30 flex items- sm:items-start rounded-2xl gap-2 text-gold p-4">
+          <div className="flex items-center justify-center h-15 w-15 rounded-full bg-gold/20">
+            <Truck className="w-8 h-8" />
+          </div>
+          <div className="text-xl sm:text-2xl font-bold">
+            Free Delivery within Lagos.
+          </div>
+        </div> */}
+        <div className="bg-linear-to-r from-[#3d352e] to-black border border-gold/30 flex items-center rounded-2xl gap-2 text-gold p-2 sm:p-4">
+          <div className="flex items-center justify-center h-15 w-15 rounded-full bg-gold/20">
+            <Truck className="w-8 h-8" />
+          </div>
+          <div className="flex-1">
+            <div className="text-xl sm:text-2xl font-bold">Pay on Delivery</div>
+            <div className="text-xs sm:text-sm text-gold/60">
+              Note: you are required to only pay on delivery within Lagos, while
+              outside Lagos may require a small commitment fee.
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Product price and name */}
       <div className="mb-4 sm:flex justify-between">
         <div className="">
-          <p className="text-[#b78c5f] font-semibold tracking-wider uppercase text-sm">
+          <p className="text-[#b78c5f] font-black tracking-wider uppercase text-sm">
             {product.brand}
           </p>
-          <h1 className="text-4xl md:text-5xl font-light mt-1">
+          <h1 className="text-4xl md:text-5xl font-semibold mt-1">
             {product.name}
           </h1>
         </div>
@@ -149,6 +171,30 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
             </ul>
           </div>
 
+          {product.colors && (
+            <div className="mt-4 space-y-2">
+              <div className="text-lg sm:text-xl font-bold">
+                Available colors:
+              </div>
+
+              <div className="flex gap-1 text-xs">
+                {product.colors.map((color, i) => (
+                  <div
+                    className="text-center w-fit min-w-10 cursor-pointer"
+                    key={i}
+                  >
+                    <div
+                      className={`${color.color} h-10 w-fit flex justify-center items-center px-4 rounded-md`}
+                    >
+                      <div className="bg-black/50 text-white px-2 rounded-sm tracking-tighter">
+                        {color.name}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
           <div className="mt-8 hidden sm:grid grid-cols-3 gap-2 sm:text-xl">
             <div className="col-span-2">
               <Button

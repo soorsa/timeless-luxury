@@ -10,10 +10,15 @@ interface Product {
   inStock?: boolean;
   benefits: string[];
   gifts: Gift[];
+  colors?: Color[];
 }
 interface Gift {
   image: string;
   title: string;
+}
+interface Color {
+  color: string;
+  name: string;
 }
 
 interface CartItem extends Product {

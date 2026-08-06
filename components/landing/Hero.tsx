@@ -34,7 +34,7 @@ export default function Hero() {
         <div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#f5efe9] max-w-2xl leading-tight">
             {item.primaryText[0]}{" "}
-            <span className="font-semibold text-[#dbb88c]">
+            <span className="font-semibold text-gold-moon">
               {item.primaryText[1]}
             </span>
           </h1>
@@ -45,15 +45,15 @@ export default function Hero() {
         </div>
 
         <div className="mt-6 md:mt-0">
-          <div className="border border-[#b78c5f] bg-[rgba(219,184,140,0.1)] backdrop-blur-sm px-6 py-3 rounded-full text-[#dbb88c]">
+          <div className="border border-[#b78c5f] bg-[rgba(219,184,140,0.1)] backdrop-blur-sm px-6 py-3 rounded-full text-gold-moon">
             ✦ Complimentary shipping
           </div>
         </div>
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#dbb88c]/30  rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#dbb88c]/30  rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 bg-gold-motext-gold-moon/30  rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-gold-motext-gold-moon/30  rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
     </motion.section>
   ));
   return <Slider showNav={false} slides={banners} />;

@@ -6,7 +6,7 @@ import OrderSuccessful from "@/components/order/OrderSuccessful";
 import { useModal } from "@/store/modal.store";
 import { formatPrice } from "@/utils/format.util";
 import { Form, Formik } from "formik";
-import { Info } from "lucide-react";
+import { Info, Truck } from "lucide-react";
 import React, { useState } from "react";
 import * as Yup from "yup";
 interface Props {
@@ -14,7 +14,10 @@ interface Props {
 }
 const OrderNow: React.FC<Props> = ({ product }) => {
   const [loading, setloading] = useState(false);
-  const colorOptions = [
+  const colorOptions = product.colors?.map((i) => ({
+    label: i.name,
+    value: i.name,
+  })) || [
     { label: "Black", value: "Black" },
     { label: "Blue", value: "Blue" },
     { label: "Gold", value: "Gold" },
@@ -70,7 +73,20 @@ const OrderNow: React.FC<Props> = ({ product }) => {
   };
   return (
     <div>
-      <div className="flex gap-2 border border-gray-300 p-1 rounded-xl mb-4 text-gray-500">
+      <div className="bg-linear-to-r from-[#3d352e] to-black border border-gold/30 flex items-start rounded-xl mb-1 gap-2 text-gold px-2 py-1">
+        <div className="flex items-center justify-center h-7 w-7 rounded-full bg-gold/20">
+          <Truck className="w-5 h-5" />
+        </div>
+        <div className="flex-1">
+          <div className="font-bold">Pay on Delivery</div>
+          <div className="text-xs text-gold/80">
+            Note: you are required to only pay on delivery within Lagos, while
+            outside Lagos may require a small commitment fee.
+          </div>
+        </div>
+      </div>
+
+      <div className="flex gap-2 border border-gray-300 px-2 py-1 rounded-xl mb-4 text-gray-500">
         <Info className="text-gray-400" />
         <div className="text-xs flex-1 font-medium">
           DO NOT PLACE AN ORDER IF YOU DO NOT HAVE THE COMPLETE MONEY OR YOU
@@ -112,6 +128,7 @@ const OrderNow: React.FC<Props> = ({ product }) => {
               <Radio
                 label="What color do you want?"
                 name="color"
+                size="xs"
                 options={colorOptions}
                 orientation="horizontal"
                 optionClassName="min-w-[calc(33%-8px)]"
