@@ -54,7 +54,8 @@ export const products: Product[] = [
     brand: "QUARTZ",
     name: "SKMEI",
     slug: "skmei",
-    price: 47500,
+    price: 75000,
+    originalPrice: 120000,
     images: [
       "/images/skmei-sliver.jpg",
       "/images/skmei-sliver-black.jpg",
@@ -112,8 +113,8 @@ export const products: Product[] = [
     brand: "PINTIME",
     name: "PINTIME ICE & THORNS",
     slug: "pintime-ice-thorns",
-    price: 31200,
-    originalPrice: 35800,
+    price: 96000,
+    originalPrice: 155000,
     images: [
       "/images/pintime-sliver.jpg",
       "/images/pintime-sliver-gold.jpg",

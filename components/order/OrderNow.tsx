@@ -4,11 +4,13 @@ import Radio from "@/components/form/Radio";
 import Button from "@/components/global/Button";
 import OrderSuccessful from "@/components/order/OrderSuccessful";
 import { useModal } from "@/store/modal.store";
+import * as FBpixel from "@/utils/facebook.pixel";
 import { formatPrice } from "@/utils/format.util";
 import { Form, Formik } from "formik";
 import { Info, Truck } from "lucide-react";
 import React, { useState } from "react";
 import * as Yup from "yup";
+
 interface Props {
   product: Product;
 }
@@ -64,6 +66,12 @@ const OrderNow: React.FC<Props> = ({ product }) => {
         title: "Order placed successfully",
         content: <OrderSuccessful />,
         size: "w-[95%] sm:w-md",
+      });
+      FBpixel.event("Purchase", {
+        content_name: product.name,
+        num_items: values.quantity,
+        currency: "NGN",
+        value: product.price * Number(values.quantity),
       });
       setloading(false);
     } catch (error) {

@@ -1,3 +1,19 @@
+interface Window {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  fbq: (...args: any[]) => void;
+}
+
+interface PixelOptions {
+  value?: number;
+  currency?: string;
+  num_items?: number;
+  content_ids?: string[] | number[];
+  content_type?: "product" | "product_group";
+  content_name?: string;
+  content_category?: string;
+  search_string?: string;
+  // [key: string]: any; // Allows custom parameters seamlessly
+}
 interface Product {
   id: number;
   brand: string;
