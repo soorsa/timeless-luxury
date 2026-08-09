@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: ["nghealthify@gmail.com", "wonderhub.dev@gmail.com"],
+      to: ["nghealthify@gmail.com"],
       subject: "🛒 New Order Placed 🎉",
       html: `
 <!DOCTYPE html>

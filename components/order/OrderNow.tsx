@@ -70,8 +70,8 @@ const OrderNow: React.FC<Props> = ({ product }) => {
       FBpixel.event("Purchase", {
         content_name: product.name,
         num_items: values.quantity,
-        currency: "NGN",
-        value: product.price * Number(values.quantity),
+        currency: "USD",
+        value: 2 * Number(values.quantity),
       });
       setloading(false);
     } catch (error) {
