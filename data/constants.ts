@@ -114,7 +114,7 @@ export const products: Product[] = [
     name: "PINTIME ICE & THORNS",
     slug: "pintime-ice-thorns",
     price: 96000,
-    originalPrice: 155000,
+    originalPrice: 185000,
     images: [
       "/images/pintime-sliver.jpg",
       "/images/pintime-sliver-gold.jpg",
