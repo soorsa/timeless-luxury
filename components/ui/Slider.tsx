@@ -102,15 +102,15 @@ const Slider: React.FC<Props> = ({ slides, showNav = true, className }) => {
       )}
 
       {/* Dots indicator */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-1.5">
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-1 bg-black/50 py-2 px-3 rounded-lg">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={`h-2 rounded-sm transition cursor-pointer ${
               index === currentSlide
-                ? "bg-dark w-6"
-                : "bg-gold/50 w-2 bg-opacity-50"
+                ? "bg-white w-8"
+                : "bg-white/50 w-2 bg-opacity-50"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
