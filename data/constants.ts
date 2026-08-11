@@ -160,6 +160,7 @@ export const products: Product[] = [
       },
     ],
     description:
-      "Elegance with a sporty spirit. Three interchangeable straps for any occasion.",
+      "Highly Sophisticated & Very Rugged Wristwatch/Bracelet/Necklace/Hand Chain that boldly declare your Class,Fashion Taste, Choices,And Defines your Distinctive Style,It is made in Dubai,Paris,Swiss,Italy We bring it direct to you,Its too pretty  and Classic to be ignored and too lush and unique to be missed,A perfect gift set for Him/Her ,Very Superior and Sophisticated quality of its kind...IN QUALITY AND LONG LASTING WE TRUST!!!
+From quality land of Dubai,Swiss,Turkey,Italy..We bring it direct to you..Its too pretty and classic to be ignored and too lush  and Unique to be missed,A perfect gift set for Her ,Very Superior and Sophisticated quality of its kind...IN QUALITY AND LONG LASTING WE TRUST!!!",
   },
 ];
