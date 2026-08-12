@@ -199,7 +199,7 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
           </div>
         </div>
       </div>
-      <div className="mt-8 grid sm:hidden grid-cols-3 gap-2 sm:text-xl p-4 sticky bottom-2 backdrop-blur-sm bg-cream/20 border border-gray-200 rounded-2xl left-0">
+      <div className="mt-8 grid sm:hidden grid-cols-3 gap-2 sm:text-xl py-2 sticky bottom-0 backdrop-blur-sm bg-cream left-0">
         <div className="col-span-2">
           <Button
             label="Order Now!"

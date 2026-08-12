@@ -31,7 +31,7 @@ const OrderNow: React.FC<Props> = ({ product }) => {
     state: "",
     phone_number: "",
     email: "",
-    color: "",
+    color: colorOptions[0].value,
     quantity: 1,
   };
   const validationSchema = Yup.object().shape({
