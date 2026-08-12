@@ -35,6 +35,7 @@ interface Gift {
 interface Color {
   color: string;
   name: string;
+  image: string;
 }
 
 interface CartItem extends Product {

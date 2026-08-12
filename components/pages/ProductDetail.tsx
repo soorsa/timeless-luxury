@@ -50,24 +50,7 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
       transition={{ duration: 0.5 }}
       className="relative"
     >
-      {/* <Link
-        href="/"
-        className="inline-flex items-center gap-2 text-[#b78c5f] hover:underline underline-offset-2 mb-8"
-      >
-        <ArrowLeftIcon className="w-4 h-4" />
-        Back to collection
-      </Link>
- */}
-
       <div className="grid gap-1 sm:gap-2 pb-4">
-        {/* <div className="bg-[#3d352e] border border-gold/30 flex items- sm:items-start rounded-2xl gap-2 text-gold p-4">
-          <div className="flex items-center justify-center h-15 w-15 rounded-full bg-gold/20">
-            <Truck className="w-8 h-8" />
-          </div>
-          <div className="text-xl sm:text-2xl font-bold">
-            Free Delivery within Lagos.
-          </div>
-        </div> */}
         <div className="bg-linear-to-r from-[#3d352e] to-black border border-gold/30 flex items-center rounded-2xl gap-2 text-gold p-2 sm:p-4">
           <div className="flex items-center justify-center h-15 w-15 rounded-full bg-gold/20">
             <Truck className="w-8 h-8" />
@@ -177,18 +160,20 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
                 Available colors:
               </div>
 
-              <div className="flex gap-1 text-xs">
+              <div className="flex flex-col sm:flex-row gap-2">
                 {product.colors.map((color, i) => (
                   <div
-                    className="text-center w-fit min-w-10 cursor-pointer"
+                    className="text-center w-full h-90 sm:h-30 sm:w-30 cursor-pointer relative overflow-hidden"
                     key={i}
                   >
-                    <div
-                      className={`${color.color} h-10 w-fit flex justify-center items-center px-4 rounded-md`}
-                    >
-                      <div className="bg-black/50 text-white px-2 rounded-sm tracking-tighter">
-                        {color.name}
-                      </div>
+                    <Image
+                      src={color.image}
+                      alt={color.color}
+                      fill
+                      quality={100}
+                    />
+                    <div className="bg-black/50 font-semibold absolute bottom-0 w-full text-white p-2 tracking-tighter">
+                      {color.name}
                     </div>
                   </div>
                 ))}

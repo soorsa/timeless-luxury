@@ -19,14 +19,17 @@ export const products: Product[] = [
       {
         name: "Black",
         color: "bg-gray-900",
+        image: "/images/poedagar-black.jpg",
       },
       {
         name: "Blue",
         color: "bg-blue-700",
+        image: "/images/poedagar-blue.jpg",
       },
       {
         name: "Gold",
         color: "bg-gold",
+        image: "/images/poedagar-gold.jpg",
       },
     ],
     inStock: true,
@@ -74,22 +77,27 @@ export const products: Product[] = [
       {
         name: "Sliver",
         color: "bg-gray-200",
+        image: "/images/skmei-sliver.jpg",
       },
       {
         name: "Sliver & Gray",
         color: "bg-gray-400",
+        image: "/images/skmei-sliver-gray.jpg",
       },
       {
         name: "Sliver & Blue",
         color: "bg-slate-400",
+        image: "/images/skmei-sliver-blue.jpg",
       },
       {
         name: "Sliver & Black",
         color: "bg-gray-600",
+        image: "/images/skmei-sliver-black.jpg",
       },
       {
         name: "Black",
         color: "bg-gray-900",
+        image: "/images/skmei-black.jpg",
       },
     ],
 
@@ -132,18 +140,22 @@ export const products: Product[] = [
       {
         name: "Sliver",
         color: "bg-gray-200",
+        image: "/images/pintime-sliver.jpg",
       },
       {
         name: "Gold",
         color: "bg-gold",
+        image: "/images/pintime-sliver-gold.jpg",
       },
       {
         name: "Black",
         color: "bg-gray-800",
+        image: "/images/pintime-black.jpg",
       },
       {
         name: "Green",
         color: "bg-green-800",
+        image: "/images/pintime-green.jpg",
       },
     ],
 
