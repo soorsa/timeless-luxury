@@ -32,11 +32,14 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
     ? product.originalPrice - product.price
     : 0;
   const slides = product.images.map((i) => (
-    <div className="w-full h-100 relative bg-gold/20" key={i}>
+    <div
+      className="w-full aspect-square rounded-xl overflow-hidden relative bg-gold/20"
+      key={i}
+    >
       <Image
         fill
         src={i}
-        quality={100}
+        quality={90}
         className="object-contain"
         alt={product.name}
       />
@@ -163,7 +166,7 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
               <div className="flex flex-col sm:flex-row gap-2">
                 {product.colors.map((color, i) => (
                   <div
-                    className="text-center w-full h-90 sm:h-30 sm:w-30 cursor-pointer relative overflow-hidden"
+                    className="text-center aspect-4/5 w-full h-90 sm:h-30 sm:w-30 cursor-pointer relative overflow-hidden"
                     key={i}
                   >
                     <Image
@@ -186,6 +189,7 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
                 label="Order Now!"
                 icon={<ShoppingBagIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5" />}
                 onClick={openOrderModal}
+                className="bg-gold-dark"
                 // onClick={() => addItem(product)}
               />
             </div>

@@ -2,6 +2,7 @@ export const products: Product[] = [
   {
     id: 1,
     brand: "POEDAGAR",
+    category: "watches",
     name: "POEDAGAR Smart Watch",
     slug: "poedagar-smart-watch",
     price: 75000,
@@ -55,6 +56,7 @@ export const products: Product[] = [
   {
     id: 2,
     brand: "QUARTZ",
+    category: "watches",
     name: "SKMEI",
     slug: "skmei",
     price: 75000,
@@ -119,6 +121,7 @@ export const products: Product[] = [
   {
     id: 3,
     brand: "PINTIME",
+    category: "watches",
     name: "PINTIME ICE & THORNS",
     slug: "pintime",
     price: 96000,

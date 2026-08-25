@@ -32,7 +32,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="group w-full bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
     >
-      <Link href={`/products/${product.slug}`} className="w-full">
+      <Link href={`/${product.category}/${product.slug}`} className="w-full">
         <div className="h-72 min-w-full w-full relative overflow-hidden bg-[#f5f0eb] flex items-center justify-center  group-hover:bg-[#ede6df] transition-colors">
           <Image
             src={product.images[0]}
@@ -46,14 +46,16 @@ export default function ProductCard({ product, index }: ProductCardProps) {
         </div>
       </Link>
 
-      <div className="p-6">
-        <Link href={`/products/${product.slug}`} className="block">
+      <div className="pt-2 pb-4 px-2">
+        <Link href={`/${product.category}/${product.slug}`} className="block">
           <div className="flex justify-between items-start">
             <div>
               <p className="text-xs text-[#b78c5f] font-black tracking-wider uppercase">
                 {product.brand}
               </p>
-              <h3 className="text-lg font-semibold mt-1">{product.name}</h3>
+              <h3 className="text-lg font-semibold mt-1 line-clamp-1">
+                {product.name}
+              </h3>
             </div>
             <div className="text-right">
               <p className="text-xl font-semibold">
@@ -71,7 +73,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
           <Button
             type="link"
             label="View"
-            link={`/products/${product.slug}`}
+            link={`/${product.category}/${product.slug}`}
             className="bg-dark text-cream"
             icon={<Eye className="w-5 h-5" />}
           />

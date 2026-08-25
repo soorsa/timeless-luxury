@@ -173,11 +173,11 @@ const NumberInput: React.FC<NumberInputProps> = ({
             onClick={handleIncrement}
             disabled={disabled || (max !== undefined && value >= max)}
             className={`
-              px-3 py-2 rounded-md transition-colors duration-200
+              px-3 py-2 rounded-md transition-colors duration-200 animate-pulse
               ${
                 theme === "dark"
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300"
-                  : "bg-gray-200 hover:bg-gold-dark hover:text-cream text-gray-700"
+                  : "bg-gray-300 hover:bg-gold-dark hover:text-cream text-gray-700"
               }
               ${
                 disabled || (max !== undefined && value >= max)
@@ -187,7 +187,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
             `}
             aria-label="Increase value"
           >
-            <Plus className="w-3 h-3" />
+            <Plus className="w-3 h-3" strokeWidth={5} />
           </button>
         </div>
       </div>

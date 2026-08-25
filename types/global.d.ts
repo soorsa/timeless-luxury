@@ -17,6 +17,7 @@ interface PixelOptions {
 interface Product {
   id: number;
   brand: string;
+  category: string;
   name: string;
   slug: string;
   price: number;
@@ -61,4 +62,9 @@ interface StateModalContent {
   title?: string;
   size?: string;
   goBack?: () => void;
+}
+
+interface FilterParams {
+  category?: string;
+  name?: string;
 }
