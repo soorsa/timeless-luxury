@@ -17,8 +17,11 @@ interface Props {
 
 const OrderNow: React.FC<Props> = ({ product }) => {
   const [loading, setloading] = useState(false);
-  const colors = product.colors?.map((c) => ({ color: c.name, quantity: 0 }));
-
+  const colors = product.colors?.map((c) => ({
+    color: c.name,
+    quantity: 0,
+  })) || [{ color: "Default", quantity: 1 }];
+  const numberOfAvailableColors = colors?.length || 0;
   const initialValues = {
     fullname: "",
     address: "",
@@ -26,14 +29,15 @@ const OrderNow: React.FC<Props> = ({ product }) => {
     state: "",
     phone_number: "",
     email: "",
-    colors: colors
-      ? [
-          {
-            color: colors[0].color,
-            quantity: 1,
-          },
-        ]
-      : [{ color: "Black", quantity: 1 }],
+    colors: colors,
+    // colors && numberOfAvailableColors > 1
+    //   ? [
+    //       {
+    //         color: colors[0].color,
+    //         quantity: 1,
+    //       },
+    //     ]
+    //   : [{ color: "Black", quantity: 1 }],
     quantity: 1,
   };
 
@@ -52,9 +56,8 @@ const OrderNow: React.FC<Props> = ({ product }) => {
     try {
       setloading(true);
 
-      // Calculate total quantity across selected colors if applicable
       const totalQuantity = values.colors?.reduce(
-        (acc, curr) => acc + Number(curr || 0),
+        (acc, curr) => acc + Number(curr.quantity || 0),
         0
       );
 
@@ -190,7 +193,7 @@ const OrderNow: React.FC<Props> = ({ product }) => {
                               key={item.color || item.name}
                               className="flex items-center justify-between gap-2 border border-gray-200 p-2 rounded-xl"
                             >
-                              <div className="flex items-center gap-2">
+                              <div className="flex items-start gap-2">
                                 {item.image && (
                                   <div className="size-10 relative rounded-md overflow-hidden shrink-0">
                                     <Image
@@ -204,7 +207,7 @@ const OrderNow: React.FC<Props> = ({ product }) => {
                                   {item.name}
                                 </div>
                               </div>
-                              <div className="w-50">
+                              <div className="w-32">
                                 <NumberInput
                                   name={`colors[${index}].quantity`}
                                   min={0}
