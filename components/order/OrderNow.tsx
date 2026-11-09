@@ -19,7 +19,7 @@ interface Props {
 
 const OrderNow: React.FC<Props> = ({ product }) => {
   const searchParams = useSearchParams();
-  const funnel = searchParams.get("funnel");
+  const funnel = searchParams.get("fbclid");
   const [loading, setloading] = useState(false);
   const colors = product.colors?.map((c) => ({
     color: c.name,
@@ -90,7 +90,7 @@ const OrderNow: React.FC<Props> = ({ product }) => {
         content: <OrderSuccessful />,
         size: "w-[95%] sm:w-md",
       });
-      if (funnel === "FB") {
+      if (funnel === "fbclid") {
         FBpixel.event("Purchase", {
           content_name: product.name,
           num_items: totalQuantity || values.quantity,
