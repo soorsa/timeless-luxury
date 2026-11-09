@@ -194,7 +194,7 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
               />
             </div>
             <Button
-              link="tel:+2349138265891"
+              link="tel:+2348122857589"
               type="link"
               label="Call us"
               className="bg-blue-800! text-white no-underline!"
@@ -215,7 +215,7 @@ const ProductDetail: React.FC<Prop> = ({ product }) => {
           />
         </div>
         <Button
-          link="tel:+2349138265891"
+          link="tel:+2348122857589"
           type="link"
           label="Call us"
           className="bg-blue-800! text-white no-underline!"
