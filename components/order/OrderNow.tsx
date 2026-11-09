@@ -1,3 +1,4 @@
+"use client";
 import Input from "@/components/form/Input";
 import NumberInput from "@/components/form/NumberInput";
 import Button from "@/components/global/Button";
@@ -8,6 +9,7 @@ import { formatPrice } from "@/utils/format.util";
 import { FieldArray, Form, Formik } from "formik";
 import { Info, Truck } from "lucide-react";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 import * as Yup from "yup";
 
@@ -16,6 +18,8 @@ interface Props {
 }
 
 const OrderNow: React.FC<Props> = ({ product }) => {
+  const searchParams = useSearchParams();
+  const funnel = searchParams.get("funnel");
   const [loading, setloading] = useState(false);
   const colors = product.colors?.map((c) => ({
     color: c.name,
@@ -86,13 +90,14 @@ const OrderNow: React.FC<Props> = ({ product }) => {
         content: <OrderSuccessful />,
         size: "w-[95%] sm:w-md",
       });
-
-      FBpixel.event("Purchase", {
-        content_name: product.name,
-        num_items: totalQuantity || values.quantity,
-        currency: "USD",
-        value: product.price * (totalQuantity || values.quantity),
-      });
+      if (funnel === "FB") {
+        FBpixel.event("Purchase", {
+          content_name: product.name,
+          num_items: totalQuantity || values.quantity,
+          currency: "USD",
+          value: product.price * (totalQuantity || values.quantity),
+        });
+      }
     } catch (error) {
       console.error(error);
     } finally {
